@@ -9,6 +9,13 @@
     "lint:fix": "eslint **/*.js --fix"
   },
   "author": { "name": "SeonHyungJo", "email": "seonhyung.jo@gmail.com", "url": "https://seonhyung.netlify.com/" },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SeonHyungJo/react-print-button.git"
+  },
+  "bugs": {
+    "url": "http://github.com/SeonHyungJo/react-print-button/issues"
+  },
   "licenses": [ {
     "type": "MIT",
     "url": "http://www.opensource.org/licenses/MIT" 
