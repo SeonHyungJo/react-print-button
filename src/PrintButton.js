@@ -2,7 +2,7 @@ import React from 'react'
 import { findDOMNode } from 'react-dom'
 import PropTypes from 'prop-types'
 
-class ReactToPrint extends React.Component {
+class PrintButton extends React.Component {
   // 인쇄 취소
   removeWindow = (target) => {
     target.parentNode.removeChild(target)
@@ -178,7 +178,7 @@ class ReactToPrint extends React.Component {
   }
 }
 
-ReactToPrint.propTypes = {
+PrintButton.propTypes = {
   trigger: PropTypes.func.isRequired,
   content: PropTypes.func.isRequired,
   copyStyles: PropTypes.bool,
@@ -187,11 +187,11 @@ ReactToPrint.propTypes = {
   pageStyle: PropTypes.string
 }
 
-ReactToPrint.defaultProps = {
+PrintButton.defaultProps = {
   copyStyles: true,
   onAfterPrint: undefined,
   onBeforePrint: undefined,
   pageStyle: undefined
 }
 
-export default ReactToPrint
+export default PrintButton

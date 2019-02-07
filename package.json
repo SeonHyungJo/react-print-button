@@ -1,15 +1,19 @@
 {
-  "name": "react-print",
-  "version": "",
-  "description": "",
+  "name": "react-print-button",
+  "version": "0.0.1",
+  "description": "Print page button in react",
   "main": "lib/index.js",
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint **/*.js",
     "lint:fix": "eslint **/*.js --fix"
   },
-  "author": "",
-  "license": "MIT",
+  "author": { "name": "SeonHyungJo", "email": "seonhyung.jo@gmail.com", "url": "https://seonhyung.netlify.com/" },
+  "licenses": [ {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/MIT" 
+  } ],
+  "keywords": ["react", "print", "button", "print_button"],
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
