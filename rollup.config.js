@@ -1,42 +1,65 @@
-import babel from 'rollup-plugin-babel';
-import replace from 'rollup-plugin-replace';
-import commonjs from 'rollup-plugin-commonjs';
-import uglify from 'rollup-plugin-uglify';
+import babel from 'rollup-plugin-babel'
+import commonjs from 'rollup-plugin-commonjs'
+import resolve from 'rollup-plugin-node-resolve'
+import { terser } from 'rollup-plugin-terser'
+import uglify from 'rollup-plugin-uglify'
+import string from 'rollup-plugin-string'
+
+const dist = 'dist'
+const bundle = 'bundle'
 
 export default {
-  input: 'src/index.js',
-  plugins: [
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    commonjs({
-      include: [
-        'node_modules/**',
-      ],
-    }),
-    babel({
-      exclude: 'node_modules/**', // only transpile our source code
-    }),
-    uglify({
-      compress: {
-        warnings: false,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
+  input: 'src/PrintButton.js',
+  external: ['react'],
+  output: [
+    {
+      file: `${dist}/${bundle}.cjs.js`,
+      format: 'cjs'
+    },
+    {
+      file: `${dist}/${bundle}.es.js`,
+      format: 'es'
+    },
+    {
+      name: 'ReactCssSpinners',
+      file: `${dist}/${bundle}.umd.js`,
+      globals: {
+        react: 'React'
       },
-      output: {
-        comments: false,
-      },
-    }),
+      format: 'umd'
+    }
   ],
-  output: {
-    file: 'lib/index.js',
-    format: 'cjs',
-  },
-  sourcemap: false,
-};
+  plugins: [
+    resolve(),
+    // commonjs({
+    //   include: 'node_modules/**',
+    //   namedExports: {
+    //     '/react-dom/index.js': ['findDOMNode']
+    //   }
+    // }),
+    babel({
+      exclude: 'node_modules/**'
+    }),
+    string({
+      include: '**/*.css'
+    }),
+    // production & terser()
+    terser()
+    // uglify({
+    //   compress: {
+    //     warnings: false,
+    //     conditionals: true,
+    //     unused: true,
+    //     comparisons: true,
+    //     sequences: true,
+    //     dead_code: true,
+    //     evaluate: true,
+    //     if_return: true,
+    //     join_vars: true
+    //   },
+    //   output: {
+    //     comments: false
+    //   }
+    // })
+  ]
+}
