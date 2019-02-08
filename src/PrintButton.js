@@ -1,5 +1,5 @@
 import React from 'react'
-import { findDOMNode } from 'react-dom'
+// import { findDOMNode } from 'react-dom'
 import PropTypes from 'prop-types'
 
 class PrintButton extends React.Component {
@@ -60,7 +60,7 @@ class PrintButton extends React.Component {
     printWindow.style.left = '-1000px'
 
     // DomNode를 찾아서 가져옴
-    const contentNodes = findDOMNode(contentEl)
+    const contentNodes = this.triggerRef // findDOMNode(contentEl)
     // 관련 CSS들을 가져옴
     const linkNodes = document.querySelectorAll('link[rel="stylesheet"]')
 
