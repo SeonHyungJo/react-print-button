@@ -1,6 +1,6 @@
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
-import resolve from 'rollup-plugin-node-resolve'
+// import resolve from 'rollup-plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
 import uglify from 'rollup-plugin-uglify'
 import string from 'rollup-plugin-string'
@@ -30,36 +30,22 @@ export default {
     }
   ],
   plugins: [
-    resolve(),
-    // commonjs({
-    //   include: 'node_modules/**',
-    //   namedExports: {
-    //     '/react-dom/index.js': ['findDOMNode']
-    //   }
-    // }),
+    // resolve(),
+    commonjs({
+      include: [
+        'node_modules/**'
+      ]
+    }),
     babel({
       exclude: 'node_modules/**'
     }),
     string({
       include: '**/*.css'
     }),
-    // production & terser()
-    terser()
-    // uglify({
-    //   compress: {
-    //     warnings: false,
-    //     conditionals: true,
-    //     unused: true,
-    //     comparisons: true,
-    //     sequences: true,
-    //     dead_code: true,
-    //     evaluate: true,
-    //     if_return: true,
-    //     join_vars: true
-    //   },
-    //   output: {
-    //     comments: false
-    //   }
-    // })
+    // uglify(),
+    terser({
+      compress: true,
+      sourcemap: true
+    })
   ]
 }
