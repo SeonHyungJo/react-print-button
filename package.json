@@ -2,7 +2,9 @@
   "name": "react-print-button",
   "version": "0.0.1",
   "description": "Print page button in react",
-  "main": "lib/index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": "false",
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint **/*.js",
@@ -33,12 +35,11 @@
     "print_button"
   ],
   "peerDependencies": {
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
-  },
-  "dependencies": {
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "prop-types": "^15.6.2"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.2.0",
     "@babel/core": "^7.2.2",
@@ -56,8 +57,10 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-vis-force": "^0.3.1",
     "rollup": "^0.52.0",
     "rollup-plugin-babel": "^4.1.0",
     "rollup-plugin-commonjs": "^9.2.0",
