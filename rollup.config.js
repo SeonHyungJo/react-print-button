@@ -10,7 +10,7 @@ const bundle = 'bundle'
 
 export default {
   input: 'src/PrintButton.js',
-  external: ['react', 'react-proptypes'],
+  external: ['react'],
   output: [
     {
       file: `${dist}/${bundle}.cjs.js`,

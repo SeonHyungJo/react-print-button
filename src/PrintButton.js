@@ -1,6 +1,6 @@
 import React from 'react'
 // import { findDOMNode } from 'react-dom'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 class PrintButton extends React.Component {
   // 인쇄 취소
@@ -178,14 +178,14 @@ class PrintButton extends React.Component {
   }
 }
 
-PrintButton.propTypes = {
-  trigger: PropTypes.func.isRequired,
-  content: PropTypes.func.isRequired,
-  copyStyles: PropTypes.bool,
-  onBeforePrint: PropTypes.func,
-  onAfterPrint: PropTypes.func,
-  pageStyle: PropTypes.string
-}
+// PrintButton.propTypes = {
+//   trigger: PropTypes.func.isRequired,
+//   content: PropTypes.func.isRequired,
+//   copyStyles: PropTypes.bool,
+//   onBeforePrint: PropTypes.func,
+//   onAfterPrint: PropTypes.func,
+//   pageStyle: PropTypes.string
+// }
 
 PrintButton.defaultProps = {
   copyStyles: true,
